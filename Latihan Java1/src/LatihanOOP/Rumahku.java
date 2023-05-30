@@ -19,3 +19,6 @@ public class Rumahku {
             System.out.println("Ada Jam Dinding");
 }
 }
+
+//Kata kunci “public static” digunakan agar method ini mempunyai jangkauan global dan isinya tetap,
+//sedangkan Method “JamDinding” hanya digunakan untuk jangkauan lokal saja

@@ -15,19 +15,19 @@ class hewan {
     }
 }
 
-class kuda extends hewan() {
+class kuda extends hewan {
     public void suara() {
         System.out.println("kuda mengikik");
     }
 }
 
-class kucing extends hewan() {
+class kucing extends hewan {
     public void suara() {
         System.out.println("kucing mengeong");
     }
 }
 
-class ayam extends hewan() {
+class ayam extends hewan {
     public void suara() {
         System.out.println("ayam berkokok");
     }
