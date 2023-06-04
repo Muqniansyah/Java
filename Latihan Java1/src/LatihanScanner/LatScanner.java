@@ -19,7 +19,7 @@ public class LatScanner {
         String nim;
         int Na,Nt,Uts,Uas;
 
-        
+//        input
         System.out.println("----------Masukkan Input Anda --------");
         System.out.println("Masukkan Nama Anda : ");
         nama = input.nextLine();

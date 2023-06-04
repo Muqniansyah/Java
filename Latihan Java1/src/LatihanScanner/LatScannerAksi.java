@@ -14,6 +14,7 @@ public class LatScannerAksi {
 //    membuat objek baru 
         ClassScanner scan = new ClassScanner();
         
+//        output
         scan .inputScanner();
         System.out.println("------Program Nilai Mahasiswa--------------");
         System.out.println("\nNIM : " + scan.getnim());

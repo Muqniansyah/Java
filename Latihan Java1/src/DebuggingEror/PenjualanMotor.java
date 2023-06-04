@@ -5,17 +5,68 @@
  */
 package DebuggingEror;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
  */
 public class PenjualanMotor extends javax.swing.JFrame {
-
-    /**
-     * Creates new form PenjualanMotor
-     */
+//buat objek class baru dari class Motor.java
+    Motor mtr = new Motor();
+    
+//    KONSTRUKTOR
     public PenjualanMotor() {
         initComponents();
+        
+        CBMERK.addItem("PILIH");
+        CBMERK.addItem("Honda");
+        CBMERK.addItem("Yamaha");
+        
+        CBJENIS.addItem("PILIH");
+        CBJENIS.addItem("Cash");
+        CBJENIS.addItem("Credit");
+
+    
+        nonaktif();
+        bHitot.setEnabled(false); 
+        BDISKON.setEnabled(false);
+    }
+    
+//    method & fungsi
+    void aktif(){
+        tnmpembeli.setEnabled(true);
+        CBMERK.setEnabled(true);
+        R1.setEnabled(true);
+        R2.setEnabled(true);
+        R3.setEnabled(true);
+        THARGA.setEnabled(true);
+        CBJENIS.setEnabled(true);
+        BDISKON.setEnabled(true);
+    }
+    
+    void bersih(){
+        tnmpembeli.setText("");
+        CBMERK.setSelectedItem("PILIH");
+        R1.setSelected(false);
+        R2.setSelected(false);        
+        R3.setSelected(false);      
+        buttonGroup1.clearSelection();
+        THARGA.setText("");
+        TDISKON.setText("");
+        totBay.setText("");
+    }
+    
+    void nonaktif(){
+        tnmpembeli.setEnabled(false);
+        CBMERK.setEnabled(false);
+        R1.setEnabled(false);
+        R2.setEnabled(false);
+        R3.setEnabled(false);
+        THARGA.setEnabled(false);
+        CBJENIS.setEnabled(false);
+        TDISKON.setEnabled(false);
+        totBay.setEnabled(false);
     }
 
     /**
@@ -27,33 +78,34 @@ public class PenjualanMotor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tnmpembeli = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox2 = new javax.swing.JComboBox();
+        R1 = new javax.swing.JRadioButton();
+        R2 = new javax.swing.JRadioButton();
+        R3 = new javax.swing.JRadioButton();
+        THARGA = new javax.swing.JTextField();
+        CBMERK = new javax.swing.JComboBox();
+        CBJENIS = new javax.swing.JComboBox();
         jLabel8 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        BDISKON = new javax.swing.JToggleButton();
         jPanel3 = new javax.swing.JPanel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        TDISKON = new javax.swing.JTextField();
+        totBay = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton4 = new javax.swing.JToggleButton();
+        BBARU = new javax.swing.JToggleButton();
+        bHitot = new javax.swing.JToggleButton();
+        BSELESAI = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplikasi Penjualan Motor");
@@ -104,27 +156,39 @@ public class PenjualanMotor extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Harga Motor");
 
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton1.setText("Manual");
-
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton2.setText("Sport");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(R1);
+        R1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        R1.setText("Bebek");
+        R1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                R1ActionPerformed(evt);
             }
         });
 
-        jRadioButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton3.setText("Matic");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(R2);
+        R2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        R2.setText("Sport");
+        R2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                R2ActionPerformed(evt);
             }
         });
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pilih", "Nmax", "Beat", "Vario", "Scoopy" }));
+        buttonGroup1.add(R3);
+        R3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        R3.setText("Matic");
+        R3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                R3ActionPerformed(evt);
+            }
+        });
+
+        CBMERK.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        CBMERK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBMERKActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -143,16 +207,16 @@ public class PenjualanMotor extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGap(38, 38, 38)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(THARGA, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(CBMERK, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jRadioButton1)
+                                        .addComponent(R1)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jRadioButton2)))
+                                        .addComponent(R2)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton3)))))
+                                .addComponent(R3)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -163,28 +227,37 @@ public class PenjualanMotor extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CBMERK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(R1)
+                    .addComponent(R2)
+                    .addComponent(R3))
                 .addGap(4, 4, 4)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(THARGA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7))
         );
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pilih", "Tunai", "Dana", "Ovo", "Gopay", " " }));
+        CBJENIS.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        CBJENIS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBJENISActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Jenis Bayar");
 
-        jToggleButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jToggleButton1.setText("Hitung Diskon");
+        BDISKON.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BDISKON.setText("Hitung Diskon");
+        BDISKON.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BDISKONActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Data Harga Motor");
@@ -208,8 +281,8 @@ public class PenjualanMotor extends javax.swing.JFrame {
                             .addComponent(jLabel11))
                         .addGap(29, 29, 29)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                            .addComponent(jTextField4)))
+                            .addComponent(TDISKON, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                            .addComponent(totBay)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jLabel9)))
@@ -222,23 +295,38 @@ public class PenjualanMotor extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addGap(13, 13, 13)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TDISKON, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totBay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jToggleButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jToggleButton2.setText("Baru");
+        BBARU.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BBARU.setText("Baru");
+        BBARU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BBARUActionPerformed(evt);
+            }
+        });
 
-        jToggleButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jToggleButton3.setText("Hitung Total");
+        bHitot.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        bHitot.setText("Hitung Total");
+        bHitot.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bHitotActionPerformed(evt);
+            }
+        });
 
-        jToggleButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jToggleButton4.setText("SELESAI");
+        BSELESAI.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        BSELESAI.setText("SELESAI");
+        BSELESAI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BSELESAIActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -249,7 +337,7 @@ public class PenjualanMotor extends javax.swing.JFrame {
                 .addGap(51, 51, 51)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tnmpembeli, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -264,17 +352,17 @@ public class PenjualanMotor extends javax.swing.JFrame {
                         .addGap(47, 47, 47)
                         .addComponent(jLabel8)
                         .addGap(59, 59, 59)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CBJENIS, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jToggleButton1)))
+                        .addComponent(BDISKON)))
                 .addContainerGap(20, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jToggleButton2)
+                .addComponent(BBARU)
                 .addGap(63, 63, 63)
-                .addComponent(jToggleButton3)
+                .addComponent(bHitot)
                 .addGap(63, 63, 63)
-                .addComponent(jToggleButton4)
+                .addComponent(BSELESAI)
                 .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
@@ -283,35 +371,95 @@ public class PenjualanMotor extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tnmpembeli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CBJENIS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(jToggleButton1))
+                    .addComponent(BDISKON))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton2)
-                    .addComponent(jToggleButton3)
-                    .addComponent(jToggleButton4))
+                    .addComponent(BBARU)
+                    .addComponent(bHitot)
+                    .addComponent(BSELESAI))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void R2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+        mtr.setSport(R2.getText());
+        mtr.getSport();
+    }//GEN-LAST:event_R2ActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void R3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+        mtr.setMatic(R3.getText());
+        mtr.getMatic();
+    }//GEN-LAST:event_R3ActionPerformed
+
+    private void CBJENISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBJENISActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CBJENISActionPerformed
+
+    private void BSELESAIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSELESAIActionPerformed
+        // TODO add your handling code here:
+        int x;
+//        JOptionPane mirip dengan jendela Pop Up
+        x=JOptionPane.showConfirmDialog(null, "Yakin mau keluar?","Kofirm",JOptionPane.YES_NO_OPTION);
+        
+        if(x==JOptionPane.YES_NO_OPTION){
+            dispose();
+        }
+        else{
+            return;
+        }
+    }//GEN-LAST:event_BSELESAIActionPerformed
+
+    private void BBARUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBARUActionPerformed
+        // TODO add your handling code here:
+        bersih();
+        aktif();
+        bHitot.setEnabled(true);
+    }//GEN-LAST:event_BBARUActionPerformed
+
+    private void R1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1ActionPerformed
+        // TODO add your handling code here:
+        mtr.setBebek(R1.getText());
+        mtr.getBebek();
+    }//GEN-LAST:event_R1ActionPerformed
+
+    private void CBMERKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBMERKActionPerformed
+        // TODO add your handling code here:
+        mtr.setmMotor(CBMERK.getSelectedItem().toString());
+        mtr.setSeleksiMerk();
+        THARGA.setText(Double.toString(mtr.getHrg()));
+    }//GEN-LAST:event_CBMERKActionPerformed
+
+    private void BDISKONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BDISKONActionPerformed
+        // TODO add your handling code here:
+        THARGA.setText(Double.toString(mtr.getHrg()));
+        mtr.setSeleksiMerk();
+        mtr.getBebek();
+        mtr.getSport();
+        mtr.getMatic();
+//        mtr.getDiskon();
+        TDISKON.setText(Double.toString(mtr.getDiskon()));
+        
+    }//GEN-LAST:event_BDISKONActionPerformed
+
+    private void bHitotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHitotActionPerformed
+        // TODO add your handling code here:
+//        TDISKON.setText(Double.toString(mtr.getHrg()));
+        totBay.setText(Double.toString(mtr.getTotal()));
+    }//GEN-LAST:event_bHitotActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,8 +497,18 @@ public class PenjualanMotor extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JToggleButton BBARU;
+    private javax.swing.JToggleButton BDISKON;
+    private javax.swing.JToggleButton BSELESAI;
+    private javax.swing.JComboBox CBJENIS;
+    private javax.swing.JComboBox CBMERK;
+    private javax.swing.JRadioButton R1;
+    private javax.swing.JRadioButton R2;
+    private javax.swing.JRadioButton R3;
+    private javax.swing.JTextField TDISKON;
+    private javax.swing.JTextField THARGA;
+    private javax.swing.JToggleButton bHitot;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -365,16 +523,7 @@ public class PenjualanMotor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
-    private javax.swing.JToggleButton jToggleButton4;
+    private javax.swing.JTextField tnmpembeli;
+    private javax.swing.JTextField totBay;
     // End of variables declaration//GEN-END:variables
 }

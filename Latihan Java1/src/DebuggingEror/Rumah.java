@@ -16,16 +16,20 @@ public class Rumah {
     
 //   fungsi & method
     public void setSeleksiLok(){
-        if(lokasi.equalIgnoreCase(“BLOK A”)){
-            hrg=”20000000”;
-        }else if(lokasi.equalIgnoreCase(“BLOK B”)){
-            hrg=”30000000”;
-        }else if(lokasi.equalIgnoreCase(“BLOK C”)){
-            hrg=”40000000”;
-        }else{
-            hrg=”0”;
+        if(lokasi.equalsIgnoreCase("BLOK A")){
+            hrg=2000000;
+        }
+        else if(lokasi.equalsIgnoreCase("BLOK B")){
+            hrg=3000000;
+        }
+        else if(lokasi.equalsIgnoreCase("BLOK C")){
+            hrg=4000000;
+        }
+        else{
+            hrg=0;
         }
     }
+    
 //    getter & setter
     public void setLokasi(String val){
         lokasi=val;
@@ -37,41 +41,41 @@ public class Rumah {
         return hrg;
     }
     public void setJog(String val){
-        Jog=val;
+        jo=val;
     }
     public double getJog(){
-        if(jog.equalIgnoreCase(“Jogging track”)){
-            Hrg_j=100000;
+        if(jo.equalsIgnoreCase("Jogging track")){
+            hrg_j=100000;
         }else{
-            Hrg_j=0;
+            hrg_j=0;
         }
-        Return hrg_j;
+        return hrg_j;
     }
     
     public void setSwim(String val){
-        Swim=val;
+        swim=val;
     }
     
     public double getSwim(){
-        If(swim.equalIgnoreCase(“Swimming pool”)){
-            Hrg_s=200000;
+        if(swim.equalsIgnoreCase("Swimming pool")){
+            hrg_s=200000;
         }
         else{
-            Hrg_s=0;
+            hrg_s=0;
         }
         return hrg_s;
     }
     
-    public void setGym(string val){
-        Gym=val;
+    public void setGym(String val){
+        gym=val;
     }
     
     public double getGym(){
-        if(gym.equalIgnoreCase(“Gymnasium”)){
-            Hrg_g=300000;
+        if(gym.equalsIgnoreCase("Gymnasium")){
+            hrg_g=300000;
         }
         else{
-            Hrg_g=0;
+            hrg_g=0;
         }
         return hrg_g;
     }
@@ -90,12 +94,14 @@ public class Rumah {
     
 
     public void setSeleksiCara(){
-        if(cara.equalIgnoreCase(“BTN”)){
-            Biaya=10000;
-        }else if(cara.equalIgnoreCase(“Other Bank”)){
-            Biaya=5000;
-        }else{
-            Biaya=0;
+        if(cara.equalsIgnoreCase("BTN")){
+            biaya=10000;
+        }
+        else if(cara.equalsIgnoreCase("Other Bank")){
+            biaya=50000;
+        }
+        else{
+            biaya=0;
         }
     }
 

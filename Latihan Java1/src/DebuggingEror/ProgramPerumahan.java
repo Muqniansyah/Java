@@ -5,6 +5,10 @@
  */
 package DebuggingEror;
 
+import javax.swing.JOptionPane;
+import javax.swing.ButtonGroup;
+import javax.swing.JRadioButton;
+
 /**
  *
  * @author User
@@ -12,43 +16,53 @@ package DebuggingEror;
 public class ProgramPerumahan extends javax.swing.JFrame {
 //    buat objek class baru dari class Rumah.java
     Rumah rmh=new Rumah();
+    
 //  KONSTRUKTOR 
     public ProgramPerumahan() {
         initComponents();
+        
+        cmblok.addItem("PILIH");
+        cmblok.addItem("Blok A");
+        cmblok.addItem("Blok B");
+        cmblok.addItem("Blok C");
+
         nonaktif();
-        bhitung.setEnabled(false);
+        bHitung.setEnabled(false);
     }
     
 //    method & fungsi
-    Void aktif(){
-        Cmblok.setEnabled(true);
-        Cbjog.setEnabled(true);
-        Cbgy.setEnabled(true);
-        Cbsw.setEnabled(true);
+    void aktif(){
+        cmblok.setEnabled(true);
+        cbjog.setEnabled(true);
+        cbgy.setEnabled(true);
+        cbsw.setEnabled(true);
         rbbtn.setEnabled(true);
         rbob.setEnabled(true);
     }
-    Void bersih(){
-        Cmblok.setSelectedItem(“PILIH”);
-        Cbjog.setSelected(false);
-        Cbsw.setSelected(false);
-        Cbgy.setSelected(false);
-        Bg.clearSelection();
-        Thrg.setText(“ ”);
-        Tbtn.setText(“ ”);
-        Tother.setText(“ ”);
-        Ttot.setText(“ ”);
+    
+    void bersih(){
+        cmblok.setSelectedItem("PILIH");
+        cbjog.setSelected(false);
+        cbsw.setSelected(false);
+        cbgy.setSelected(false);
+        buttonGroup1.clearSelection();
+        thrg.setText("");
+        tbtn.setText("");
+        tother.setText("");
+        tTot.setText("");
     }
-    Void nonaktif(){
-        Cmblok.setEnabled(false);
-        Cbjog.setEnabled(false);
-        Cbgy.setEnabled(false);
-        Cbsw.setEnabled(false);
+    
+    void nonaktif(){
+        cmblok.setEnabled(false);
+        cbjog.setEnabled(false);
+        cbgy.setEnabled(false);
+        cbsw.setEnabled(false);
         rbbtn.setEnabled(false);
         rbob.setEnabled(false);
         thrg.setEnabled(false);
         tbtn.setEnabled(false);
-        ttot.setEnabled(false);
+        tother.setEnabled(false);
+        tTot.setEnabled(false);
     }
 
 
@@ -62,8 +76,6 @@ public class ProgramPerumahan extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        buttonGroup2 = new javax.swing.ButtonGroup();
-        buttonGroup3 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -117,6 +129,11 @@ public class ProgramPerumahan extends javax.swing.JFrame {
         cmblok.setBackground(new java.awt.Color(204, 204, 255));
         cmblok.setFont(new java.awt.Font("Tw Cen MT", 0, 12)); // NOI18N
         cmblok.setForeground(new java.awt.Color(255, 255, 204));
+        cmblok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmblokActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -229,11 +246,29 @@ public class ProgramPerumahan extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("CARA PEMBAYARAN");
 
+        buttonGroup1.add(rbbtn);
         rbbtn.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         rbbtn.setText("BTN");
+        rbbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbbtnActionPerformed(evt);
+            }
+        });
 
+        buttonGroup1.add(rbob);
         rbob.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         rbob.setText("Other Bank");
+        rbob.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbobActionPerformed(evt);
+            }
+        });
+
+        tother.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totherActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -272,10 +307,25 @@ public class ProgramPerumahan extends javax.swing.JFrame {
         );
 
         bHitung.setText("HITUNG");
+        bHitung.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bHitungActionPerformed(evt);
+            }
+        });
 
         bBersih.setText("BERSIH");
+        bBersih.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bBersihActionPerformed(evt);
+            }
+        });
 
         bKeluar.setText("KELUAR");
+        bKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bKeluarActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("TOTAL");
@@ -368,13 +418,13 @@ public class ProgramPerumahan extends javax.swing.JFrame {
         String s;
         if(cbsw.isSelected()){
             s=cbsw.getText();
-            Rmh.setSwim(s);
-            Rmh.getSwim();
+            rmh.setSwim(s);
+            rmh.getSwim();
         }
         else{
             s="";
-            Rmh.setSwim(s);
-            Rmh.getSwim();
+            rmh.setSwim(s);
+            rmh.getSwim();
         }
 
     }//GEN-LAST:event_cbswActionPerformed
@@ -382,15 +432,15 @@ public class ProgramPerumahan extends javax.swing.JFrame {
     private void cbgyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbgyActionPerformed
         // TODO add your handling code here:
         String g;
-        If(cbgy.isSelected()){
+        if(cbgy.isSelected()){
             g=cbgy.getText();
-            Rmh.setGym(g);
-            Rmh.getGym();
+            rmh.setGym(g);
+            rmh.getGym();
         }
         else{
-            g=” “;
-            Rmh.setGym(g);
-            Rmh.getGym();
+            g="";
+            rmh.setGym(g);
+            rmh.getGym();
         }
 
     }//GEN-LAST:event_cbgyActionPerformed
@@ -399,16 +449,70 @@ public class ProgramPerumahan extends javax.swing.JFrame {
         // TODO add your handling code here:
         String j;
         if(cbjog.isSelected()){
-            J=cbjog.getText();
-            Rmh.setJog(j);
-            Rmh.getJog();
+            j=cbjog.getText();
+            rmh.setJog(j);
+            rmh.getJog();
         }
         else{
-            J=” “;
-            Rmh.setJog(j);
-            Rmh.getJog();
+            j="";
+            rmh.setJog(j);
+            rmh.getJog();
         }
     }//GEN-LAST:event_cbjogActionPerformed
+
+    private void totherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totherActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totherActionPerformed
+
+    private void cmblokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmblokActionPerformed
+        // TODO add your handling code here:
+        rmh.setLokasi(cmblok.getSelectedItem().toString());
+        rmh.setSeleksiLok();
+        thrg.setText(Double.toString(rmh.getHrg()));
+    }//GEN-LAST:event_cmblokActionPerformed
+
+    private void rbbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbbtnActionPerformed
+        // TODO add your handling code here:
+        rmh.setCara(rbbtn.getText());
+        rmh.setSeleksiCara();
+        tbtn.setText(Double.toString(rmh.getBiaya()));
+        tother.setText("");
+    }//GEN-LAST:event_rbbtnActionPerformed
+
+    private void rbobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbobActionPerformed
+        // TODO add your handling code here:
+        rmh.setCara(rbob.getText());
+        rmh.setSeleksiCara();
+        tother.setText(Double.toString(rmh.getBiaya()));
+        tbtn.setText("");
+    }//GEN-LAST:event_rbobActionPerformed
+
+    private void bHitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHitungActionPerformed
+        // TODO add your handling code here:
+        thrg.setText(Double.toString(rmh.getHrg()));
+        tTot.setText(Double.toString(rmh.getTotal()));
+    }//GEN-LAST:event_bHitungActionPerformed
+
+    private void bBersihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bBersihActionPerformed
+        // TODO add your handling code here:
+        bersih();
+        aktif();
+        bHitung.setEnabled(true);
+    }//GEN-LAST:event_bBersihActionPerformed
+
+    private void bKeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bKeluarActionPerformed
+        // TODO add your handling code here:
+         int x;
+//        JOptionPane mirip dengan jendela Pop Up
+        x=JOptionPane.showConfirmDialog(null, "Yakin mau keluar?","Kofirm",JOptionPane.YES_NO_OPTION);
+        
+        if(x==JOptionPane.YES_NO_OPTION){
+            dispose();
+        }
+        else{
+            return;
+        }
+    }//GEN-LAST:event_bKeluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -450,8 +554,6 @@ public class ProgramPerumahan extends javax.swing.JFrame {
     private javax.swing.JButton bHitung;
     private javax.swing.JButton bKeluar;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JCheckBox cbgy;
     private javax.swing.JCheckBox cbjog;
     private javax.swing.JCheckBox cbsw;

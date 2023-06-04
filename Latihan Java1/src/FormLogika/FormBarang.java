@@ -142,6 +142,12 @@ public final class FormBarang extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(240, 240, 240));
         jLabel3.setText("---------------------------------------");
 
+        thrg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                thrgActionPerformed(evt);
+            }
+        });
+
         text6.setForeground(new java.awt.Color(240, 240, 240));
         text6.setText("Uang Bayar :");
 
@@ -322,6 +328,10 @@ public final class FormBarang extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_tubyrKeyPressed
+
+    private void thrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thrgActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_thrgActionPerformed
 
     /**
      * @param args the command line arguments
