@@ -68,6 +68,7 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(jPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 190, 30));
 
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/Page Login.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 520, -1));
 

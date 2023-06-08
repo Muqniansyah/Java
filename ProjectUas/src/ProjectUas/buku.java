@@ -18,19 +18,19 @@ public class buku {
     public String setSeleksiCode(){
         
         if(kode.equalsIgnoreCase("BK001")){
-            buku ="buku 1";
+            buku ="Filosofi Teras";
         }
         else if(kode.equalsIgnoreCase("BK002")){
-            buku ="buku 2";
+            buku ="Matahari";
         }
         else if(kode.equalsIgnoreCase("BK003")){
-            buku = "buku 3";
+            buku = "Automatic Habit";
         }
         else if(kode.equalsIgnoreCase("BK004")){
-            buku = "buku 4";
+            buku = "Computer Science";
         }
         else if(kode.equalsIgnoreCase("BK005")){
-            buku = "buku5";
+            buku = "Belajar Java";
         }
         else{
             buku = "";

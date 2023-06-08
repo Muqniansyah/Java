@@ -19,7 +19,7 @@ public class aplikasiperpus extends javax.swing.JFrame {
     public aplikasiperpus() {
         initComponents();
         
-        cStatus.addItem("PILIH");
+//        cStatus.addItem("PILIH");
         cStatus.addItem("Dipinjam");
         cStatus.addItem("Dikembalikan");
         
