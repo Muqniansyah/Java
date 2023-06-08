@@ -183,6 +183,12 @@ public class PenjualanMotor extends javax.swing.JFrame {
             }
         });
 
+        THARGA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                THARGAActionPerformed(evt);
+            }
+        });
+
         CBMERK.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         CBMERK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -460,6 +466,10 @@ public class PenjualanMotor extends javax.swing.JFrame {
 //        TDISKON.setText(Double.toString(mtr.getHrg()));
         totBay.setText(Double.toString(mtr.getTotal()));
     }//GEN-LAST:event_bHitotActionPerformed
+
+    private void THARGAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_THARGAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_THARGAActionPerformed
 
     /**
      * @param args the command line arguments

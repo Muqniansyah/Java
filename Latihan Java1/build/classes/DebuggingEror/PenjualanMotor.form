@@ -307,6 +307,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="THARGA">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="THARGAActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="CBMERK">
           <Properties>

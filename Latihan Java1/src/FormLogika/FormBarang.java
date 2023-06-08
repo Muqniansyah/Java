@@ -130,6 +130,11 @@ public final class FormBarang extends javax.swing.JFrame {
         text4.setForeground(new java.awt.Color(240, 240, 240));
         text4.setText("Jumlah Beli :");
 
+        tjml.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tjmlActionPerformed(evt);
+            }
+        });
         tjml.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 tjmlKeyPressed(evt);
@@ -332,6 +337,10 @@ public final class FormBarang extends javax.swing.JFrame {
     private void thrgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thrgActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_thrgActionPerformed
+
+    private void tjmlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tjmlActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tjmlActionPerformed
 
     /**
      * @param args the command line arguments

@@ -10,5 +10,54 @@ package ProjectUas;
  * @author User
  */
 public class buku {
+    //    inisialisasi variabel
+    public String kode="", buku="", nama;
+    public double hrg=0,hrg_beb=0,hrg_s=0,hrg_mat=0,biaya=0,diskon=0,total=0;
+    
+    //    fungsi & method
+    public String setSeleksiCode(){
+        
+        if(kode.equalsIgnoreCase("BK001")){
+            buku ="buku 1";
+        }
+        else if(kode.equalsIgnoreCase("BK002")){
+            buku ="buku 2";
+        }
+        else if(kode.equalsIgnoreCase("BK003")){
+            buku = "buku 3";
+        }
+        else if(kode.equalsIgnoreCase("BK004")){
+            buku = "buku 4";
+        }
+        else if(kode.equalsIgnoreCase("BK005")){
+            buku = "buku5";
+        }
+        else{
+            buku = "";
+        }
+        return kode;
+    }
+    
+//getter & setter
+    public void setCode(String val) {
+        kode = val;
+    }
+    
+    public String getCode() {
+        return kode;
+    }
+    
+    public String getBuku() {
+        return buku;
+    }
+    
+    public void setNama(String val) {
+        nama = val;
+    }
+    
+    public String getNama() {
+        return nama;
+    }
+    
     
 }
