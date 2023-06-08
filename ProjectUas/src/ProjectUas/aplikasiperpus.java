@@ -29,6 +29,9 @@ public class aplikasiperpus extends javax.swing.JFrame {
         tKode.addItem("BK003");
         tKode.addItem("BK004");
         tKode.addItem("BK005");
+        
+//        untuk membuat judul buku tidak aktif/tidak bisa dirubah
+        tJudul.setEnabled(false);
     }
     
 //    method & fungsi
@@ -124,6 +127,11 @@ public class aplikasiperpus extends javax.swing.JFrame {
                 "Nama", "Kode Buku", "Judul Buku", "Jumlah Buku", "Status"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 170, -1, 310));
@@ -254,7 +262,37 @@ public class aplikasiperpus extends javax.swing.JFrame {
 
     private void bEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEditActionPerformed
         // TODO add your handling code here:
+//            buat objek table
+        DefaultTableModel tblModel =(DefaultTableModel)jTable1.getModel();
         
+        if(jTable1.getSelectedRowCount()==1){
+//            jika baris dipilih untuk diupdate
+            String nama = tNama.getText();
+            String kode = tKode.getSelectedItem().toString();
+            String judul = tJudul.getText();
+            String jumlah = tJumlah.getText();
+            String status = cStatus.getSelectedItem().toString();
+            
+//            set update nilai pada table 
+            tblModel.setValueAt(nama, jTable1.getSelectedRow(), 0);
+            tblModel.setValueAt(kode, jTable1.getSelectedRow(), 1);
+            tblModel.setValueAt(judul, jTable1.getSelectedRow(), 2);
+            tblModel.setValueAt(jumlah, jTable1.getSelectedRow(), 3);
+            tblModel.setValueAt(status, jTable1.getSelectedRow(), 4);
+            
+//            pesan update
+            JOptionPane.showMessageDialog(this, "Update Berhasil..");
+        }
+        else {
+            if(jTable1.getRowCount()==0){
+//                jika table kosong(tidak ada data)
+               JOptionPane.showMessageDialog(this, "Table Kosong.");
+            }
+            else {
+//                jika table tidak kosong tapi tidak ada row yang dipilih atau lebih dari 2 row yang dipilih
+                JOptionPane.showMessageDialog(this, "Pilih row yang ingin diedit.");
+            }
+        }
     }//GEN-LAST:event_bEditActionPerformed
 
     private void bHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHapusActionPerformed
@@ -278,6 +316,27 @@ public class aplikasiperpus extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_bHapusActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+                // atur data ke textfield
+//        buat objek table
+        DefaultTableModel tblModel =(DefaultTableModel)jTable1.getModel();
+        
+//        set data ke textfield ketika ada baris yang dipilih
+        String tblName = tblModel.getValueAt(jTable1.getSelectedRow(), 0).toString();
+        String tblKode = tblModel.getValueAt(jTable1.getSelectedRow(), 1).toString();
+        String tblJudul = tblModel.getValueAt(jTable1.getSelectedRow(), 2).toString();
+        String tblJumlah = tblModel.getValueAt(jTable1.getSelectedRow(), 3).toString();
+        String tblStatus = tblModel.getValueAt(jTable1.getSelectedRow(), 4).toString();
+
+//        set ke textfield
+        tNama.setText(tblName);
+        tKode.setSelectedItem(tblKode);
+        tJudul.setText(tblJudul);
+        tJumlah.setText(tblJumlah);
+        cStatus.setSelectedItem(tblStatus);
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
