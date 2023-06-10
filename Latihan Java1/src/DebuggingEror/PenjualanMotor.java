@@ -23,7 +23,6 @@ public class PenjualanMotor extends javax.swing.JFrame {
         CBMERK.addItem("Honda");
         CBMERK.addItem("Yamaha");
         
-        CBJENIS.addItem("PILIH");
         CBJENIS.addItem("Cash");
         CBJENIS.addItem("Credit");
 
@@ -40,7 +39,7 @@ public class PenjualanMotor extends javax.swing.JFrame {
         R1.setEnabled(true);
         R2.setEnabled(true);
         R3.setEnabled(true);
-        THARGA.setEnabled(true);
+        THARGA.setEnabled(false);
         CBJENIS.setEnabled(true);
         BDISKON.setEnabled(true);
     }
@@ -265,6 +264,12 @@ public class PenjualanMotor extends javax.swing.JFrame {
             }
         });
 
+        totBay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totBayActionPerformed(evt);
+            }
+        });
+
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Data Harga Motor");
 
@@ -401,14 +406,12 @@ public class PenjualanMotor extends javax.swing.JFrame {
 
     private void R2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R2ActionPerformed
         // TODO add your handling code here:
-        mtr.setSport(R2.getText());
-        mtr.getSport();
+        THARGA.setText(String.valueOf(mtr.getSport()));
     }//GEN-LAST:event_R2ActionPerformed
 
     private void R3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R3ActionPerformed
         // TODO add your handling code here:
-        mtr.setMatic(R3.getText());
-        mtr.getMatic();
+        THARGA.setText(String.valueOf(mtr.getMatic()));
     }//GEN-LAST:event_R3ActionPerformed
 
     private void CBJENISActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBJENISActionPerformed
@@ -437,9 +440,8 @@ public class PenjualanMotor extends javax.swing.JFrame {
     }//GEN-LAST:event_BBARUActionPerformed
 
     private void R1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R1ActionPerformed
-        // TODO add your handling code here:
-        mtr.setBebek(R1.getText());
-        mtr.getBebek();
+        // TODO add your handling code here:   
+        THARGA.setText(String.valueOf(mtr.getBebek()));       
     }//GEN-LAST:event_R1ActionPerformed
 
     private void CBMERKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBMERKActionPerformed
@@ -452,24 +454,47 @@ public class PenjualanMotor extends javax.swing.JFrame {
     private void BDISKONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BDISKONActionPerformed
         // TODO add your handling code here:
         THARGA.setText(Double.toString(mtr.getHrg()));
-        mtr.setSeleksiMerk();
-        mtr.getBebek();
-        mtr.getSport();
-        mtr.getMatic();
-//        mtr.getDiskon();
-        TDISKON.setText(Double.toString(mtr.getDiskon()));
+
+        if(R1.isSelected()){
+            TDISKON.setText(String.valueOf(mtr.getBebek()*0.05));
+        } 
+        else if(R2.isSelected()){
+            TDISKON.setText(String.valueOf(mtr.getSport()*0.03));
+        }
+        else if(R3.isSelected()){
+            TDISKON.setText(String.valueOf(mtr.getMatic()*0.01));
+        }
         
+        THARGA.setText("");
+        buttonGroup1.clearSelection();
     }//GEN-LAST:event_BDISKONActionPerformed
 
     private void bHitotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHitotActionPerformed
         // TODO add your handling code here:
-//        TDISKON.setText(Double.toString(mtr.getHrg()));
-        totBay.setText(Double.toString(mtr.getTotal()));
+        THARGA.setText(Double.toString(mtr.getHrg()));
+
+        if(R1.isSelected()){
+//            mtr.setSeleksiMerk();
+            totBay.setText(String.valueOf((mtr.getHrg()+20000)-mtr.getBebek()*0.05));
+        } 
+        else if(R2.isSelected()){
+            totBay.setText(String.valueOf((mtr.getHrg()+40000)-mtr.getSport()*0.03));
+        }
+        else if(R3.isSelected()){
+            totBay.setText(String.valueOf((mtr.getHrg()+60000)-mtr.getMatic()*0.01));
+        }
+        
+        THARGA.setText("");
+        buttonGroup1.clearSelection();
     }//GEN-LAST:event_bHitotActionPerformed
 
     private void THARGAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_THARGAActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_THARGAActionPerformed
+
+    private void totBayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totBayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_totBayActionPerformed
 
     /**
      * @param args the command line arguments
