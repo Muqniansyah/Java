@@ -12,7 +12,6 @@ package ProjectUas;
 public class buku {
     //    inisialisasi variabel
     public String kode="", buku="", nama;
-    public double hrg=0,hrg_beb=0,hrg_s=0,hrg_mat=0,biaya=0,diskon=0,total=0;
     
     //    fungsi & method
     public String setSeleksiCode(){
