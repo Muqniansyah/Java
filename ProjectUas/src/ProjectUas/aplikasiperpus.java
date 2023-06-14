@@ -316,7 +316,7 @@ public class aplikasiperpus extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_bHapusActionPerformed
-
+//event mouse clicked pada table
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
                 // atur data ke textfield
