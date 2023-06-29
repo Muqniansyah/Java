@@ -108,7 +108,7 @@ public class Login extends javax.swing.JFrame {
             tUser.setText("");
             jPass.setText("");
                 // buat objek baru
-            aplikasiperpus Jframe2 = new aplikasiperpus();
+            panel Jframe2 = new panel();
                 // display jframe2
             Jframe2.show();  
                 // tutup jframe1 setelah buka jframe2

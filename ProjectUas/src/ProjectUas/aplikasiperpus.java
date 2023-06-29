@@ -62,6 +62,7 @@ public class aplikasiperpus extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
@@ -70,6 +71,7 @@ public class aplikasiperpus extends javax.swing.JFrame {
         bEdit = new javax.swing.JButton();
         bSimpan = new javax.swing.JButton();
         bKeluar = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -117,6 +119,10 @@ public class aplikasiperpus extends javax.swing.JFrame {
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/trash.png"))); // NOI18N
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(466, 550, -1, 50));
+
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/menu.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 30, 30));
 
         jTable1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -177,6 +183,13 @@ public class aplikasiperpus extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(751, 553, 110, 50));
+
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 50, 30));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -338,6 +351,16 @@ public class aplikasiperpus extends javax.swing.JFrame {
         cStatus.setSelectedItem(tblStatus);
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        // buat objek baru
+            panel Jframe2 = new panel();
+                // display jframe2
+            Jframe2.show();  
+                // tutup jframe1 setelah buka jframe2
+            dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -380,11 +403,13 @@ public class aplikasiperpus extends javax.swing.JFrame {
     private javax.swing.JButton bRefresh;
     private javax.swing.JButton bSimpan;
     private javax.swing.JComboBox cStatus;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
